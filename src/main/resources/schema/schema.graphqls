@@ -1,0 +1,18 @@
+scalar DateTime
+
+type Query {
+    account(accountId: String): Account
+    transaction(accountId: String): [Transaction]
+}
+
+type Account {
+    accountId: String
+    accountName: String
+    balance: Float
+}
+
+type Transaction {
+    transactionId: String
+    amount: Float
+    date: DateTime
+}
