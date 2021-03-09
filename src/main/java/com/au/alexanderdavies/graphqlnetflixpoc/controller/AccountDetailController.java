@@ -22,6 +22,7 @@ public class AccountDetailController {
         String queryString = "{account(accountId: \"" + id + "\") {accountId accountName balance}"
                 + " transaction(accountId: \"" + id + "\") {transactionId amount date}}";
 
+
         // !IMPORTANT need to add in security measures to prevent injection attack
         return dgsQueryExecutor.executeAndExtractJsonPath(queryString, "data");
 

@@ -1,5 +1,5 @@
-# GraphQl Netflix poc (POC)
-The intent of this **POC ** is to pocnstrate the use of GraphQL as a library to orchestrate and manage cross dependencies for the BFF layer as well as a federated graphql server.
+# GraphQL Netflix poc (POC)
+The intent of this **POC** is to pocnstrate the use of GraphQL as a library to orchestrate and manage cross dependencies for the BFF layer as well as a federated GraphQL server.
 
 ## Run
 mvn spring-boot:run
@@ -53,4 +53,4 @@ password: test1234
 
 The postman collection is located in resources/graphql-netflix-poc.postman_collection
 
-**!IMPORTANT:** ensure that you change the accountId path variable to one selected from H2 dashboard i.e. http://localhost:8080/account-detail/**ZRM5aGuzyEjHRZKzr2QiE5cTapMSwd**
+**!IMPORTANT:** ensure that you change the accountId path variable to one selected from H2 dashboard i.e. http://localhost:8080/account-detail/ZRM5aGuzyEjHRZKzr2QiE5cTapMSwd
