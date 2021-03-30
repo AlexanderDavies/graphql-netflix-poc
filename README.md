@@ -23,6 +23,7 @@ password: test1234
 
 ### Get account
 ```javascript
+  <!--In query -->
   {
       account(accountId: "N4QoEiLDt5K2yGkZTD1318oDwgM9Zb") {
           accountId
@@ -34,18 +35,28 @@ password: test1234
 
 ### Get Account and Transactions
 ```javascript
-{
-    account(accountId: "f3rdH18EZiGs3veqpFaGjkmUimXSKP") {
+  <!--IN QUERY EDITOR-->
+  query($accountId:String!)
+  {
+    account(accountId:$accountId) 
+    {
         accountId
-      	accountName
-        balance	
+        accountName
+        balance
     }
-  	transaction(accountId: "f3rdH18EZiGs3veqpFaGjkmUimXSKP") {
-    	transactionId
-    	amount
-    	date
+    transaction(accountId:$accountId)
+    {
+        transactionId
+        amount
+        date
+    }
   }
-}
+
+  <!--IN QUERY VARIABLES EDITOR -->
+
+  {  
+    "accountId": "k32mEOhthYL3qdLsVsCx4CvS12N0jK"
+  }
 ```
 
 ## BFF AccountDetails endpoint

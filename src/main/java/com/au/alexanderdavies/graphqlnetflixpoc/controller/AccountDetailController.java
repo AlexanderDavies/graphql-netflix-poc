@@ -1,5 +1,8 @@
 package com.au.alexanderdavies.graphqlnetflixpoc.controller;
 
+import java.util.Collections;
+
+import com.au.alexanderdavies.graphqlnetflixpoc.util.GraphQlQuery;
 import com.netflix.graphql.dgs.DgsQueryExecutor;
 
 import org.springframework.http.MediaType;
@@ -19,12 +22,9 @@ public class AccountDetailController {
     @GetMapping(path = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Object getAccountDetails(@PathVariable String id) {
 
-        String queryString = "{account(accountId: \"" + id + "\") {accountId accountName balance}"
-                + " transaction(accountId: \"" + id + "\") {transactionId amount date}}";
+        String queryString = GraphQlQuery.GET_ACCOUNT_DETAILS.fetchQuery();
 
-
-        // !IMPORTANT need to add in security measures to prevent injection attack
-        return dgsQueryExecutor.executeAndExtractJsonPath(queryString, "data");
+        return dgsQueryExecutor.executeAndExtractJsonPath(queryString, "data", Collections.singletonMap("accountId", id));
 
     }
 

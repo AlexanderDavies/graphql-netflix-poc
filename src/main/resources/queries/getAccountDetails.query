@@ -1,0 +1,15 @@
+query($accountId:String!)
+{
+  account(accountId:$accountId) 
+  {
+      accountId
+      accountName
+      balance
+  }
+  transaction(accountId:$accountId)
+  {
+      transactionId
+      amount
+      date
+  }
+}
