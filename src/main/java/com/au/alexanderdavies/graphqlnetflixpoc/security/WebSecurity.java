@@ -36,7 +36,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .permitAll().anyRequest().authenticated().and().httpBasic().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-                http.headers().frameOptions().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Bean
