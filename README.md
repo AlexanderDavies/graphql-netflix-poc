@@ -2,7 +2,7 @@
 The intent of this **POC** is to pocnstrate the use of GraphQL as a library to orchestrate and manage cross dependencies for the BFF layer as well as a federated GraphQL server.
 
 ## Run
-mvn spring-boot:run
+mvn spring-boot:run -Dspring-boot.run.profiles=local
 
 ## H2 Dashboard
 [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
