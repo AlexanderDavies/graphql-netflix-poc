@@ -16,14 +16,13 @@
 						"type": "text"
 					},
 					{
-						"key": "",
-						"value": "",
-						"type": "text",
-						"disabled": true
+						"key": "Authorization",
+						"value": "Basic YWRtaW46dGVzdDEyMzU=",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/account-detail/{{accountId}}",
+					"raw": "http://localhost:8080/account-detail/GSCcF3Kud2yKFaLOvQQGx0HTZ8SxYb",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -31,7 +30,7 @@
 					"port": "8080",
 					"path": [
 						"account-detail",
-						"{{accountId}}"
+						"GSCcF3Kud2yKFaLOvQQGx0HTZ8SxYb"
 					]
 				}
 			},
