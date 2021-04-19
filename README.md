@@ -57,6 +57,14 @@ password: test1234
   {  
     "accountId": "k32mEOhthYL3qdLsVsCx4CvS12N0jK"
   }
+
+  <!--IN REQUEST HEADERS -->
+
+  {
+    "Content-Type":"application/json", 
+    "Authorization": "Basic YWRtaW46dGVzdDEyMzU="
+  }
+
 ```
 
 ## BFF AccountDetails endpoint

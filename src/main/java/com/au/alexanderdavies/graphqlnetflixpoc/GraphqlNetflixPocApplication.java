@@ -2,7 +2,6 @@ package com.au.alexanderdavies.graphqlnetflixpoc;
 
 import com.au.alexanderdavies.graphqlnetflixpoc.security.GraphQlFilter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
