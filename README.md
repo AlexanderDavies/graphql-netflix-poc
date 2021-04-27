@@ -1,5 +1,5 @@
 # GraphQL Netflix poc (POC)
-The intent of this **POC** is to pocnstrate the use of GraphQL as a library to orchestrate and manage cross dependencies for the BFF layer as well as a federated GraphQL server.
+The intent of this **POC** is to demonstrate the use of GraphQL as a library to orchestrate and manage cross dependencies for the BFF layer as well as a federated GraphQL server.
 
 ## Run
 mvn spring-boot:run -Dspring-boot.run.profiles=local
@@ -25,16 +25,19 @@ password: test1234
 
 ### REQUEST HEADERS 
 
-<!--IN REQUEST HEADERS TAB -->
+```javascript
+// IN REQUEST HEADERS TAB
 
 {
   "Content-Type":"application/json", 
   "Authorization": "Basic YWRtaW46dGVzdDEyMzU="
 }
+```
 
 ### Get account
-  <!--In query -->
 ```javascript
+ // In query
+
   {
       account(accountId: "hvQ3b0uom9H6LdgO90Q12345asdfg") {
           accountId
@@ -46,8 +49,9 @@ password: test1234
 
 
 ### Get Account and Transactions
-  <!--IN QUERY EDITOR-->
 ```javascript
+  // IN QUERY EDITOR
+  
   query($accountId:String!)
   {
     account(accountId:$accountId) 
@@ -64,8 +68,9 @@ password: test1234
     }
   }
 ```
-  <!--IN QUERY VARIABLES EDITOR -->
 ```javascript
+  // IN QUERY VARIABLES EDITOR
+
   {  
     "accountId": "hvQ3b0uom9H6LdgO90Q12345asdfg"
   }
