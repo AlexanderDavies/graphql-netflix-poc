@@ -1,7 +1,6 @@
 package com.au.alexanderdavies.graphqlnetflixpoc.service.impl;
 
 import com.au.alexanderdavies.graphqlnetflixpoc.dto.AccountDto;
-import com.au.alexanderdavies.graphqlnetflixpoc.dto.TransactionDto;
 import com.au.alexanderdavies.graphqlnetflixpoc.entity.AccountEntity;
 import com.au.alexanderdavies.graphqlnetflixpoc.repository.AccountRepository;
 import com.au.alexanderdavies.graphqlnetflixpoc.service.AccountService;
@@ -25,22 +24,7 @@ public class AccountServiceImpl implements AccountService {
 
         ModelMapper modelMapper = new ModelMapper();
 
-         for (var i = 0; i < account.getTransactions().size(); i++) {
-            TransactionDto transaction = account.getTransactions().get(i);
-
-            TransactionDto transactionDto = modelMapper.map(transaction, TransactionDto.class);
-
-            transactionDto.setAccount(account);
-
-            transactionDto.setTransactionId(generateId.generateTransactionId(30));
-
-            account.getTransactions().set(i,transactionDto);
-   
-        }
-
         AccountEntity accountEntity = modelMapper.map(account, AccountEntity.class);
-
-        accountEntity.setAccountId(generateId.generateAccountId(30));
 
         AccountEntity savedAccountEntity = accountRepository.save(accountEntity);
 

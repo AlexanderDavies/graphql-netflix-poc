@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.au.alexanderdavies.graphqlnetflixpoc.dto.TransactionDto;
-import com.au.alexanderdavies.graphqlnetflixpoc.entity.AccountEntity;
 import com.au.alexanderdavies.graphqlnetflixpoc.entity.TransactionEntity;
-import com.au.alexanderdavies.graphqlnetflixpoc.repository.AccountRepository;
 import com.au.alexanderdavies.graphqlnetflixpoc.repository.TransactionRepository;
 import com.au.alexanderdavies.graphqlnetflixpoc.service.TransactionService;
+import com.au.alexanderdavies.graphqlnetflixpoc.util.GenerateId;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,16 @@ public class TransactionServiceImpl implements TransactionService {
     TransactionRepository transactionRepository;
 
     @Autowired
-    AccountRepository accountRepository;
+    GenerateId generateId;
 
     @Override
     public List<TransactionDto> getTransactions(String accountId) {
 
-        AccountEntity accountEntity = accountRepository.findByAccountId(accountId);
+        List<TransactionEntity> transactions = transactionRepository.findAllByAccountId(accountId);
 
-        List<TransactionEntity> transactions = transactionRepository.findAllByAccount(accountEntity);
+        if (transactions == null || transactions.isEmpty()) {
+            return new ArrayList<>();
+        }
 
         ModelMapper modelMapper = new ModelMapper();
 
@@ -41,5 +42,18 @@ public class TransactionServiceImpl implements TransactionService {
         }
 
         return transactionList;
+    }
+
+    @Override
+    public TransactionDto createTransaction(TransactionDto transaction) {
+        ModelMapper modelMapper = new ModelMapper();
+
+        TransactionEntity transasctionEntity = modelMapper.map(transaction, TransactionEntity.class);
+
+        transasctionEntity.setTransactionId(generateId.generateTransactionId(30));
+
+        TransactionEntity savedTransaction = transactionRepository.save(transasctionEntity);
+        
+        return modelMapper.map(savedTransaction, TransactionDto.class);
     }
 }

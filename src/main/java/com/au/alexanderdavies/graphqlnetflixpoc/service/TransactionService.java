@@ -6,4 +6,5 @@ import com.au.alexanderdavies.graphqlnetflixpoc.dto.TransactionDto;
 
 public interface TransactionService {
     public List<TransactionDto> getTransactions(String accountId);
+    public TransactionDto createTransaction(TransactionDto transaction);
 }

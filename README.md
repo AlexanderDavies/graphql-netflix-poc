@@ -17,15 +17,26 @@ password: test1234
 
 [http://localhost:8080/graphiql](http://localhost:8080/graphiql)
 
+1. Sign in with admin credentials: username: admin, password: test1235 (these can be changed in application.properties)
+
 1. To test add the following queries into the left hand pane.
 
 2. **!important**: ensure that you change the accountId to one selected/retrieved from the above H2 query
 
+### REQUEST HEADERS 
+
+<!--IN REQUEST HEADERS TAB -->
+
+{
+  "Content-Type":"application/json", 
+  "Authorization": "Basic YWRtaW46dGVzdDEyMzU="
+}
+
 ### Get account
-```javascript
   <!--In query -->
+```javascript
   {
-      account(accountId: "N4QoEiLDt5K2yGkZTD1318oDwgM9Zb") {
+      account(accountId: "hvQ3b0uom9H6LdgO90Q12345asdfg") {
           accountId
           accountName
           balance
@@ -33,9 +44,10 @@ password: test1234
   }
 ```
 
+
 ### Get Account and Transactions
-```javascript
   <!--IN QUERY EDITOR-->
+```javascript
   query($accountId:String!)
   {
     account(accountId:$accountId) 
@@ -51,18 +63,11 @@ password: test1234
         date
     }
   }
-
+```
   <!--IN QUERY VARIABLES EDITOR -->
-
+```javascript
   {  
-    "accountId": "k32mEOhthYL3qdLsVsCx4CvS12N0jK"
-  }
-
-  <!--IN REQUEST HEADERS -->
-
-  {
-    "Content-Type":"application/json", 
-    "Authorization": "Basic YWRtaW46dGVzdDEyMzU="
+    "accountId": "hvQ3b0uom9H6LdgO90Q12345asdfg"
   }
 
 ```

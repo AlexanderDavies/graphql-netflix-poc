@@ -15,8 +15,8 @@ public class GraphqlNetflixPocApplication {
 	}
 
 	@Bean
-	public FilterRegistrationBean someFilterRegistration() {
-		FilterRegistrationBean registration = new FilterRegistrationBean<>();
+	public FilterRegistrationBean<GraphQlFilter> someFilterRegistration() {
+		FilterRegistrationBean<GraphQlFilter> registration = new FilterRegistrationBean<>();
 		registration.setFilter(new GraphQlFilter());
 		registration.addUrlPatterns("/graphiql");
 		return registration;

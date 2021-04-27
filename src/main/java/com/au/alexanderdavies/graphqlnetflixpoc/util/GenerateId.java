@@ -12,10 +12,6 @@ public class GenerateId {
     private final Random RANDOM = new SecureRandom();
     private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    public String generateAccountId(int length) {
-        return generateRandomString(length);
-    }
-
     public String generateTransactionId(int length) {
         return generateRandomString(length);
     }

@@ -12,13 +12,14 @@ import lombok.Setter;
 public class TransactionDto {
     private long id;
     private String transactionId;
+    private String accountId;
     private long amount;
     private LocalDateTime date;
-    private AccountDto account;
 
-    public TransactionDto(long amount, LocalDateTime date) {
+    public TransactionDto(String accountId, long amount, LocalDateTime date) {
         this.amount = amount;
         this.date = date;
+        this.accountId = accountId;
     }
 
 }
