@@ -9,9 +9,8 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local
 username: sa
 password: test1234
 
-1. Run the following query select * from account;
-
-2. Copy an account_id (GUID) to use in the steps below
+1. select * from account;
+2. select * from transaction;
 
 ## GraphQL Endpoint
 
@@ -20,8 +19,6 @@ password: test1234
 1. Sign in with admin credentials: username: admin, password: test1235 (these can be changed in application.properties)
 
 1. To test add the following queries into the left hand pane.
-
-2. **!important**: ensure that you change the accountId to one selected/retrieved from the above H2 query
 
 ### REQUEST HEADERS 
 
