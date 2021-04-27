@@ -36,7 +36,7 @@ password: test1234
 
 ### Get account
 ```javascript
- // In query
+ // IN QUERY
 
   {
       account(accountId: "hvQ3b0uom9H6LdgO90Q12345asdfg") {
